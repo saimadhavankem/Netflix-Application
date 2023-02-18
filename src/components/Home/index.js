@@ -1,14 +1,19 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import Poster from '../Poster'
+import TopRatedMovies from '../TopRatedMovies'
+import Footer from '../Footer'
 import './index.css'
 
 class Home extends Component {
+  state = {posterDetails: ''}
+
   componentDidMount() {
     this.getDetails()
   }
 
   getDetails = async () => {
-    const url = 'https://apis.ccbp.in/movies-app/trending-movies'
+    const url = 'https://apis.ccbp.in/movies-app/top-rated-movies'
     const jwtToken = Cookies.get('jwt_token')
     const options = {
       headers: {
@@ -18,12 +23,31 @@ class Home extends Component {
     }
     const response = await fetch(url, options)
     const data = await response.json()
+    const arrayLength = data.results.length
+    const randomItem =
+      data.results[Math.floor(Math.random() * (arrayLength - 1))]
+
+    const updatedArray = {
+      id: randomItem.id,
+      title: randomItem.title,
+      posterPath: randomItem.poster_path,
+      backdropPath: randomItem.backdrop_path,
+      overview: randomItem.overview,
+    }
+    this.setState({
+      posterDetails: {...updatedArray},
+    })
   }
 
   render() {
+    const {posterDetails} = this.state
+
     return (
       <div className="home-container">
-        <h1>hello</h1>
+        <Poster key={posterDetails.id} details={posterDetails} />
+
+        <TopRatedMovies />
+        <Footer />
       </div>
     )
   }

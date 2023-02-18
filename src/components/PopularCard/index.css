@@ -1,0 +1,11 @@
+.image-size {
+  height: 160px;
+  width: 240px;
+  border-radius: 8px;
+  background-size: cover;
+  margin-bottom: 15px;
+}
+
+.card {
+  margin-right: 15px;
+}

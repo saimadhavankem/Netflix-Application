@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import {Redirect} from 'react-router-dom'
 import './index.css'
 
 class Login extends Component {
@@ -15,7 +16,7 @@ class Login extends Component {
 
   onSubmitSuccess = jwtToken => {
     const {history} = this.props
-    Cookies.set('jwt_token', jwtToken, {expires: 30})
+    Cookies.set('jwt_token', jwtToken, {expires: 30, path: '/'})
     history.replace('/')
   }
 
@@ -43,6 +44,7 @@ class Login extends Component {
 
   render() {
     const {username, password, isError, errorText} = this.state
+
     return (
       <div className="login-container">
         <form onSubmit={this.submitForm} className="login-box">
@@ -55,6 +57,7 @@ class Login extends Component {
               onChange={this.onNameChange}
               className="input"
               id="username"
+              value={username}
             />
           </div>
           <div className="input-container">
@@ -65,6 +68,7 @@ class Login extends Component {
               onChange={this.onPasswordChange}
               className="input"
               id="password"
+              value={password}
             />
           </div>
           <button className="login-button" type="submit">

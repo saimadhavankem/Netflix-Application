@@ -1,0 +1,52 @@
+.search-page-container {
+  min-height: 100vh;
+  background-size: cover;
+  background-color: #131313;
+}
+
+.search-details-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.loading-container {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.image-height {
+  height: 260px;
+}
+
+.no-result-container {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.no-result-text {
+  font-family: 'Roboto';
+  font-size: 18px;
+  color: #ffffff;
+}
