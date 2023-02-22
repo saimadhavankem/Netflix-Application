@@ -22,15 +22,18 @@ class PopularPage extends Component {
       method: 'GET',
     }
     const response = await fetch(url, options)
-    const data = await response.json()
-    const updatedData = data.results.map(eachItem => ({
-      id: eachItem.id,
-      title: eachItem.title,
-      posterPath: eachItem.poster_path,
-      overview: eachItem.overview,
-      backdropPath: eachItem.backdrop_path,
-    }))
-    this.setState({popularMoviesList: updatedData})
+    if (response.ok) {
+      const data = await response.json()
+      const updatedData = data.results.map(eachItem => ({
+        id: eachItem.id,
+        title: eachItem.title,
+        posterPath: eachItem.poster_path,
+        overview: eachItem.overview,
+        backdropPath: eachItem.backdrop_path,
+      }))
+
+      this.setState({popularMoviesList: updatedData})
+    }
   }
 
   render() {

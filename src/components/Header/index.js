@@ -49,6 +49,11 @@ const Header = props => {
             </button>
           </Link>
         </div>
+        <img
+          className="profile-image-size"
+          src="https://res.cloudinary.com/dkbxi5qts/image/upload/v1660573232/Avatar_giy0y5.png"
+          alt="account"
+        />
       </div>
     </div>
   )

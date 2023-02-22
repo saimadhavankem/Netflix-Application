@@ -1,0 +1,80 @@
+.movie-detail-container {
+  min-height: 100vh;
+  background-color: #131313;
+  background-size: cover;
+}
+
+.poster-1-container {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.poster-text-container {
+  padding-top: 80px;
+  padding-left: 150px;
+  font-family: 'Roboto';
+  height: 100%;
+  width: 50%;
+  background: linear-gradient(
+    90.33deg,
+    #181818 -6.5%,
+    rgba(24, 24, 24, 0.6) 57.15%,
+    rgba(24, 24, 24, 0) 99.77%
+  );
+}
+
+.poster-heading {
+  font-size: 35px;
+  color: #ffffff;
+  margin-bottom: 9px;
+}
+
+.time-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: 'Roboto';
+  color: #ffffff;
+  margin-top: 5px;
+  height: 18px;
+}
+
+.time-text {
+  font-size: 16px;
+  margin-right: 15px;
+}
+
+.certificate-text {
+  font-size: 16px;
+  margin-right: 15px;
+  border: 1px solid #ffffff;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.year-text {
+  font-size: 16px;
+}
+
+.overview-text {
+  font-family: 'Roboto';
+  color: #ffffff;
+  font-size: 18px;
+  width: 600px;
+}
+
+.play-btn {
+  background-color: #ffffff;
+  color: #171f46;
+  font-family: 'Roboto';
+  font-size: 18px;
+  text-align: center;
+  border-width: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 17px;
+  padding-right: 17px;
+}

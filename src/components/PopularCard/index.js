@@ -1,21 +1,16 @@
+import {Link} from 'react-router-dom'
 import './index.css'
 
 const PopularCard = props => {
   const {details} = props
   const {id, title, backdropPath} = details
-  const onClickPopularCard = () => {
-    console.log(id)
-  }
 
   return (
-    <div className="card">
-      <img
-        onClick={onClickPopularCard}
-        className="image-size"
-        src={backdropPath}
-        alt={title}
-      />
-    </div>
+    <Link to={`/movies/${id}`} className="link-style">
+      <div className="card">
+        <img className="image-size" src={backdropPath} alt={title} />
+      </div>
+    </Link>
   )
 }
 

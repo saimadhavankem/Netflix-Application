@@ -34,14 +34,14 @@ class SearchPage extends Component {
       method: 'GET',
     }
     const response = await fetch(url, options)
-    const data = await response.json()
-    const updatedDetails = data.results.map(eachItem => ({
-      id: eachItem.id,
-      posterPath: eachItem.poster_path,
-      backdropPath: eachItem.backdrop_path,
-      title: eachItem.title,
-    }))
-    if (response.ok === true) {
+    if (response.ok) {
+      const data = await response.json()
+      const updatedDetails = data.results.map(eachItem => ({
+        id: eachItem.id,
+        posterPath: eachItem.poster_path,
+        backdropPath: eachItem.backdrop_path,
+        title: eachItem.title,
+      }))
       this.setState({
         searchList: updatedDetails,
         renderStatus: renderConstraints.success,
@@ -57,7 +57,7 @@ class SearchPage extends Component {
       <div className="search-page-container">
         <Header details={dark} getSearchDetails={this.getSearchDetails} />
         <div className="loading-container">
-          <div className="loader-container" testid="loader">
+          <div className="loader-container">
             <Loader type="TailSpin" color="#D81F26" height={50} width={50} />
           </div>
         </div>
@@ -128,8 +128,37 @@ class SearchPage extends Component {
     )
   }
 
+  renderMoviesList = () => {
+    const {searchList} = this.state
+    if (searchList.length > 0) {
+      return this.renderSuccess()
+    }
+    return this.renderNoResults()
+  }
+
+  renderInitialPage = () => {
+    const {dark} = this.state
+    return (
+      <div className="search-page-container">
+        <Header details={dark} getSearchDetails={this.getSearchDetails} />
+      </div>
+    )
+  }
+
   render() {
-    return this.renderFailureView()
+    const {renderStatus} = this.state
+    switch (renderStatus) {
+      case renderConstraints.success:
+        return this.renderMoviesList()
+      case renderConstraints.failure:
+        return this.renderFailureView()
+      case renderConstraints.loading:
+        return this.renderLoader()
+      case renderConstraints.initial:
+        return this.renderInitialPage()
+      default:
+        return null
+    }
   }
 }
 
