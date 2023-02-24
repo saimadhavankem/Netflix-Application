@@ -14,7 +14,7 @@ const Poster = props => {
       className="poster-container"
     >
       <Header />
-      <div className="text-container">
+      <div className="text1-container">
         <h1>{title}</h1>
         <p>{overview}</p>
         <button type="button" className="poster-button">

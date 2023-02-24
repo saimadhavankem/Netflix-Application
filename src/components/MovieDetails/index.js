@@ -4,6 +4,17 @@ import Cookies from 'js-cookie'
 import Header from '../Header'
 import './index.css'
 
+const GenreItem = props => {
+  const {data} = props
+  const {name} = data
+
+  return (
+    <li className="list-type">
+      <p>{name}</p>
+    </li>
+  )
+}
+
 class MovieDetails extends Component {
   state = {MovieDetailsList: [], similarMoviesList: [], dark: false}
 
@@ -35,6 +46,7 @@ class MovieDetails extends Component {
     )
 
     const genresData = data.movie_details.genres.map(eachItem => ({
+      id: eachItem.id,
       name: eachItem.name,
     }))
     const spokenLanguagesData = data.movie_details.spoken_languages.map(
@@ -57,7 +69,7 @@ class MovieDetails extends Component {
       genres: genresData,
       spokenLanguages: spokenLanguagesData,
     }
-    console.log(data)
+
     this.setState({
       similarMoviesList: updatedSimilarMovies,
       MovieDetailsList: updatedMovieDetails,
@@ -81,6 +93,7 @@ class MovieDetails extends Component {
       genres,
       spokenLanguages,
     } = MovieDetailsList
+    console.log(id)
     const inHours = Math.floor(runtime / 60)
     const inMinutes = runtime % 60
     const time = `${inHours}h ${inMinutes}m`
@@ -103,8 +116,19 @@ class MovieDetails extends Component {
               <p className="year-text">2007</p>
             </div>
             <p className="overview-text">{overview}</p>
-            <button>Play</button>                          Play
+            <button type="button" className="btn-design">
+              Play
             </button>
+          </div>
+        </div>
+        <div className="details-text-container">
+          <div className="info-container">
+            <p className="details-heading">Genres</p>
+            <ul>
+              {genres.map(eachItem => (
+                <GenreItem key={eachItem.id} data={eachItem} />
+              ))}
+            </ul>
           </div>
         </div>
       </div>

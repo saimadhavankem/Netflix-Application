@@ -7,9 +7,9 @@ const PopularCard = props => {
 
   return (
     <Link to={`/movies/${id}`} className="link-style">
-      <div className="card">
+      <li className="card">
         <img className="image-size" src={backdropPath} alt={title} />
-      </div>
+      </li>
     </Link>
   )
 }

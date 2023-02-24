@@ -62,7 +62,7 @@
 .overview-text {
   font-family: 'Roboto';
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   width: 600px;
 }
 
@@ -77,4 +77,17 @@
   padding-bottom: 10px;
   padding-left: 17px;
   padding-right: 17px;
+}
+
+.list-type {
+  list-style-type: none;
+}
+
+.details-text-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 30px;
+  padding-left: 45px;
+  padding-right: 45px;
 }
