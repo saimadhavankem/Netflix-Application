@@ -12,6 +12,8 @@ const renderConstraints = {
   loading: 'LOADING',
 }
 
+const searchBox = true
+
 class SearchPage extends Component {
   state = {
     searchList: [],
@@ -55,7 +57,11 @@ class SearchPage extends Component {
     const {dark} = this.state
     return (
       <div className="search-page-container">
-        <Header details={dark} getSearchDetails={this.getSearchDetails} />
+        <Header
+          searchBox={searchBox}
+          details={dark}
+          getSearchDetails={this.getSearchDetails}
+        />
         <div className="loading-container">
           <div className="loader-container">
             <Loader type="TailSpin" color="#D81F26" height={50} width={50} />
@@ -69,7 +75,11 @@ class SearchPage extends Component {
     const {searchList, dark} = this.state
     return (
       <div className="search-page-container">
-        <Header details={dark} getSearchDetails={this.getSearchDetails} />
+        <Header
+          searchBox={searchBox}
+          details={dark}
+          getSearchDetails={this.getSearchDetails}
+        />
         <ul className="search-details-container">
           {searchList.map(eachItem => (
             <PopularCard key={eachItem.id} details={eachItem} />
@@ -83,7 +93,11 @@ class SearchPage extends Component {
     const {dark, searchedValue} = this.state
     return (
       <div className="search-page-container">
-        <Header details={dark} getSearchDetails={this.getSearchDetails} />
+        <Header
+          searchBox={searchBox}
+          details={dark}
+          getSearchDetails={this.getSearchDetails}
+        />
         <div className="loading-container">
           <div className="no-result-container">
             <img
@@ -104,7 +118,11 @@ class SearchPage extends Component {
     const {dark} = this.state
     return (
       <div className="search-page-container">
-        <Header details={dark} getSearchDetails={this.getSearchDetails} />
+        <Header
+          searchBox={searchBox}
+          details={dark}
+          getSearchDetails={this.getSearchDetails}
+        />
         <div className="loading-container">
           <div className="no-result-container">
             <img
@@ -140,7 +158,11 @@ class SearchPage extends Component {
     const {dark} = this.state
     return (
       <div className="search-page-container">
-        <Header details={dark} getSearchDetails={this.getSearchDetails} />
+        <Header
+          searchBox={searchBox}
+          details={dark}
+          getSearchDetails={this.getSearchDetails}
+        />
       </div>
     )
   }

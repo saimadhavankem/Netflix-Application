@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import Cookies from 'js-cookie'
 import Header from '../Header'
 import Footer from '../Footer'
 import './index.css'
@@ -7,7 +8,9 @@ class AccountDetails extends Component {
   state = {dark: true}
 
   onLogout = () => {
-    console.log('logout')
+    const {history} = this.props
+    Cookies.remove('jwt_token')
+    history.replace('/login')
   }
 
   render() {

@@ -1,10 +1,10 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-import TopRatedCard from '../TopRatedCard'
+import SliderCard from '../SliderCard'
 import './index.css'
 
-class TopRatedMovies extends Component {
-  state = {TopRatedMoviesList: []}
+class OriginalMovies extends Component {
+  state = {OriginalMoviesList: []}
 
   componentDidMount() {
     this.TopRatedMoviesDetails()
@@ -12,7 +12,7 @@ class TopRatedMovies extends Component {
 
   TopRatedMoviesDetails = async () => {
     const jwtToken = Cookies.get('jwt_token')
-    const url = 'https://apis.ccbp.in/movies-app/top-rated-movies'
+    const url = 'https://apis.ccbp.in/movies-app/originals'
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -28,18 +28,18 @@ class TopRatedMovies extends Component {
       backdropPath: eachItem.backdrop_path,
       overview: eachItem.overview,
     }))
-    this.setState({TopRatedMoviesList: updatedDetails})
+    this.setState({OriginalMoviesList: updatedDetails})
   }
 
   render() {
-    const {TopRatedMoviesList} = this.state
+    const {OriginalMoviesList} = this.state
     return (
       <div className="top-rated-movies-container">
-        <h1>hello</h1>
-        <TopRatedCard moviesList={TopRatedMoviesList} />
+        <h1 className="top-rated-text">Originals</h1>
+        <SliderCard moviesList={OriginalMoviesList} />
       </div>
     )
   }
 }
 
-export default TopRatedMovies
+export default OriginalMovies

@@ -1,0 +1,24 @@
+.top-rated-movies-container {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.top-rated-failure-movies-container {
+  width: 75%;
+  height: 170px;
+  background-color: #0d0d0d;
+  align-self: center;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-rated-text {
+  font-family: 'Roboto';
+  font-size: 18px;
+  color: #ffffff;
+  margin-left: 170px;
+  margin-top: 35px;
+}

@@ -54,7 +54,7 @@ class Login extends Component {
         <form onSubmit={this.submitForm} className="login-box">
           <h1 className="login-heading">Login</h1>
           <div className="input-container">
-            <label className="text" htmlFor="username">
+            <label className="text-heading" htmlFor="username">
               USERNAME
             </label>
             <input
@@ -65,7 +65,7 @@ class Login extends Component {
             />
           </div>
           <div className="input-container">
-            <label className="text" htmlFor="password">
+            <label className="text-heading" htmlFor="password">
               PASSWORD
             </label>
             <input
@@ -73,6 +73,7 @@ class Login extends Component {
               className="input"
               id="password"
               value={password}
+              type="password"
             />
           </div>
           <button className="login-button" type="submit">

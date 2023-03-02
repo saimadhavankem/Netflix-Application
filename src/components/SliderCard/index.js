@@ -1,6 +1,8 @@
 import {Component} from 'react'
 import {Link} from 'react-router-dom'
 import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 /* Add css to your project */
 import './index.css'
@@ -36,7 +38,7 @@ const settings = {
   ],
 }
 
-class TopRatedCard extends Component {
+class SliderCard extends Component {
   renderSlider = () => {
     const {moviesList} = this.props
     return (
@@ -61,4 +63,4 @@ class TopRatedCard extends Component {
   }
 }
 
-export default TopRatedCard
+export default SliderCard

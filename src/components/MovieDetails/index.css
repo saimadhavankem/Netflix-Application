@@ -86,8 +86,46 @@
 .details-text-container {
   display: flex;
   flex-direction: row;
-  align-items: center;
   padding-top: 30px;
-  padding-left: 45px;
-  padding-right: 45px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.info-container {
+  margin-right: 190px;
+}
+
+.details-heading {
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: #94a3b8;
+}
+
+.info-text {
+  font-family: 'Roboto';
+  font-size: 15px;
+  color: #ffffff;
+}
+
+.similar-text {
+  font-family: 'Roboto';
+  font-size: 17px;
+  color: #ffffff;
+  margin-left: 100px;
+}
+
+.similar-container {
+  padding-left: 100px;
+  padding-right: 100px;
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+}
+
+.detail-para-text {
+  font-family: 'Roboto';
+  font-size: 15px;
+  color: #ffffff;
+  margin-top: 2px;
 }

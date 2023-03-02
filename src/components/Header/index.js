@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import './index.css'
 
 const Header = props => {
-  const {details, getSearchDetails} = props
+  const {details, getSearchDetails, searchBox} = props
   const [searchValue, search] = useState('')
 
   const searchInput = () => {
@@ -37,23 +37,27 @@ const Header = props => {
       </div>
       <div className="right-container">
         <div className="main-input-container">
-          <input
-            className="search-input-container"
-            onChange={searchText}
-            type="text"
-            value={searchValue}
-          />
+          {searchBox && (
+            <input
+              className="search-input-container"
+              onChange={searchText}
+              type="text"
+              value={searchValue}
+            />
+          )}
           <Link to="/search">
             <button type="button" onClick={searchInput} className="search-icon">
               <BsSearch size={15} />
             </button>
           </Link>
         </div>
-        <img
-          className="profile-image-size"
-          src="https://res.cloudinary.com/dkbxi5qts/image/upload/v1660573232/Avatar_giy0y5.png"
-          alt="account"
-        />
+        <Link to="/account">
+          <img
+            className="profile-image-size"
+            src="https://res.cloudinary.com/dkbxi5qts/image/upload/v1660573232/Avatar_giy0y5.png"
+            alt="account"
+          />
+        </Link>
       </div>
     </div>
   )

@@ -9,6 +9,7 @@
 
 .react-slick-item {
   background: transparent;
+  list-style-type: none;
 }
 
 .slick-app-container {

@@ -1,0 +1,11 @@
+.top-rated-movies-container {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.top-rated-text {
+  font-family: 'Roboto';
+  font-size: 18px;
+  color: #ffffff;
+  margin-left: 170px;
+}

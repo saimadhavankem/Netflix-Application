@@ -1,7 +1,8 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Poster from '../Poster'
-import TopRatedMovies from '../TopRatedMovies'
+import OriginalMovies from '../OriginalMovies'
+import TrendingMovies from '../TrendingMovies'
 import Footer from '../Footer'
 import './index.css'
 
@@ -45,8 +46,8 @@ class Home extends Component {
     return (
       <div className="home-container">
         <Poster key={posterDetails.id} details={posterDetails} />
-
-        <TopRatedMovies />
+        <TrendingMovies />
+        <OriginalMovies />
         <Footer />
       </div>
     )
