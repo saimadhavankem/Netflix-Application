@@ -76,3 +76,10 @@
   color: #ffffff;
   cursor: pointer;
 }
+
+@media screen and (max-width: 760px) {
+  .account-details {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}

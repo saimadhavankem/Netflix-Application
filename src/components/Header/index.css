@@ -37,7 +37,6 @@
 
 .main-input-container {
   height: 38px;
-
   background-color: #131313;
   border-width: 2px;
   border: 1.5px solid #ffffff;
@@ -74,4 +73,62 @@
   height: 40px;
   width: 40px;
   margin-left: 20px;
+}
+.home-containers-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 760px) {
+  .header-container {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 10vh;
+  }
+  .home-containers-mobile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #f8fafc;
+    width: 100%;
+    height: 65px;
+    background-color: #131313;
+  }
+  .profile-image-size {
+    display: none;
+  }
+  .option-text {
+    display: none;
+  }
+  .close-icon {
+    height: 23px;
+    width: 23px;
+    color: #ffffff;
+  }
+  .close-btn-container {
+    background-color: transparent;
+    cursor: pointer;
+    border-width: 0;
+  }
+  .mobile-text {
+    font-family: 'Roboto';
+    font-size: 16px;
+    color: #ffffff;
+  }
+  .menu-btn {
+    background-color: transparent;
+    border-width: 0;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+    align-self: center;
+    margin-bottom: 4px;
+    margin-left: 2px;
+  }
+  .menu-icon {
+    color: #ffffff;
+    height: 32px;
+    width: 32px;
+  }
 }

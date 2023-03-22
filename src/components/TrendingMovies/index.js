@@ -4,14 +4,26 @@ import Loader from 'react-loader-spinner'
 import SliderCard from '../SliderCard'
 import './index.css'
 
+const renderConstraints = {
+  initial: 'INITIAL',
+  success: 'SUCCESS',
+  fail: 'FAIL',
+  loading: 'LOADING',
+}
+
 class TrendingMovies extends Component {
-  state = {OriginalMoviesList: []}
+  state = {OriginalMoviesList: [], renderStatus: renderConstraints.initial}
 
   componentDidMount() {
     this.TopRatedMoviesDetails()
   }
 
+  btnClick = () => {
+    this.TopRatedMoviesDetails()
+  }
+
   TopRatedMoviesDetails = async () => {
+    this.setState({renderStatus: renderConstraints.loading})
     const jwtToken = Cookies.get('jwt_token')
     const url = 'https://apis.ccbp.in/movies-app/trending-movies'
     const options = {
@@ -21,15 +33,22 @@ class TrendingMovies extends Component {
       method: 'GET',
     }
     const response = await fetch(url, options)
-    const data = await response.json()
-    const updatedDetails = data.results.map(eachItem => ({
-      id: eachItem.id,
-      title: eachItem.title,
-      posterPath: eachItem.poster_path,
-      backdropPath: eachItem.backdrop_path,
-      overview: eachItem.overview,
-    }))
-    this.setState({OriginalMoviesList: updatedDetails})
+    if (response.ok) {
+      const data = await response.json()
+      const updatedDetails = data.results.map(eachItem => ({
+        id: eachItem.id,
+        title: eachItem.title,
+        posterPath: eachItem.poster_path,
+        backdropPath: eachItem.backdrop_path,
+        overview: eachItem.overview,
+      }))
+      this.setState({
+        OriginalMoviesList: updatedDetails,
+        renderStatus: renderConstraints.success,
+      })
+    } else {
+      this.setState({renderStatus: renderConstraints.fail})
+    }
   }
 
   renderFailureView = () => (
@@ -41,8 +60,16 @@ class TrendingMovies extends Component {
           alt="failure view"
           src="https://res.cloudinary.com/dkbxi5qts/image/upload/v1660451047/movies%20prime%20app/alert-triangle_najaul.png"
         />
-        <p>Something Went Wrong</p>
-        <button type="button">Try Again</button>
+        <p className="list-error-message">
+          Something Went Wrong.Please Try Again
+        </p>
+        <button
+          onClick={this.btnClick()}
+          className="try-again-btn"
+          type="button"
+        >
+          Try Again
+        </button>
       </div>
     </>
   )
@@ -71,7 +98,17 @@ class TrendingMovies extends Component {
   }
 
   render() {
-    return this.renderLoadingView()
+    const {renderStatus} = this.state
+    switch (renderStatus) {
+      case renderConstraints.success:
+        return this.renderSuccess()
+      case renderConstraints.fai:
+        return this.renderFailureView()
+      case renderConstraints.loading:
+        return this.renderLoadingView()
+      default:
+        return null
+    }
   }
 }
 

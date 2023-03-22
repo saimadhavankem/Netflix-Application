@@ -207,7 +207,7 @@ class MovieDetails extends Component {
               <p className="year-text">{year}</p>
             </div>
             <p className="overview-text">{overview}</p>
-            <button type="button" className="btn-design">
+            <button type="button" className="play-btn">
               Play
             </button>
           </div>

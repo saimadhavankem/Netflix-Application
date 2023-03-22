@@ -15,6 +15,10 @@ class Login extends Component {
   }
 
   onSubmitSuccess = jwtToken => {
+    const {username, password} = this.state
+    localStorage.setItem('username', username)
+    localStorage.setItem('password', password)
+
     const {history} = this.props
     Cookies.set('jwt_token', jwtToken, {expires: 30, path: '/'})
     history.replace('/')
@@ -51,6 +55,11 @@ class Login extends Component {
 
     return (
       <div className="login-container">
+        <img
+          src="https://res.cloudinary.com/dps34f4by/image/upload/v1646985280/Group_7399_1_rs0qmy.png"
+          className="login-logo-size"
+          alt="logo"
+        />
         <form onSubmit={this.submitForm} className="login-box">
           <h1 className="login-heading">Login</h1>
           <div className="input-container">
@@ -76,10 +85,10 @@ class Login extends Component {
               type="password"
             />
           </div>
+          {isError && <p className="error-text">{errorText}</p>}
           <button className="login-button" type="submit">
             Login
           </button>
-          {isError && <p className="error-text">{errorText}</p>}
         </form>
       </div>
     )

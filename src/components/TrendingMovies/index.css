@@ -22,3 +22,37 @@
   margin-left: 170px;
   margin-top: 35px;
 }
+
+.try-again-btn {
+  background-color: #ffffff;
+  color: #171f46;
+  font-family: 'Roboto';
+  font-size: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  text-align: center;
+  border-radius: 4px;
+  border-width: 0;
+  cursor: pointer;
+}
+
+.list-error-message {
+  font-family: 'Roboto';
+  font-size: 15px;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 760px) {
+  .top-rated-text {
+    margin-left: 35px;
+    font-size: 19px;
+    font-weight: 0;
+    margin-top: 3px;
+  }
+  .top-rated-movies-container {
+    margin-top: 20px;
+    width: 100%;
+  }
+}

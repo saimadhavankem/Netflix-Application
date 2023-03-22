@@ -15,6 +15,10 @@ class AccountDetails extends Component {
 
   render() {
     const {dark} = this.state
+    const usernameText = localStorage.getItem('username')
+    const passwordText = localStorage.getItem('password')
+    const encrypted = '*'.repeat(passwordText.length)
+
     return (
       <div className="account-page">
         <Header details={dark} />
@@ -26,8 +30,8 @@ class AccountDetails extends Component {
               <p className="about-text">Member ship</p>
             </div>
             <div className="details">
-              <p className="details-text">rahul@gmail.com</p>
-              <p className="details-text">Password: ****** </p>
+              <p className="details-text">{usernameText}</p>
+              <p className="details-text">Password: {encrypted} </p>
             </div>
           </div>
           <hr />
