@@ -71,6 +71,7 @@ class Login extends Component {
               className="input"
               id="username"
               value={username}
+              placeholder="Ex:rahul"
             />
           </div>
           <div className="input-container">
@@ -83,6 +84,7 @@ class Login extends Component {
               id="password"
               value={password}
               type="password"
+              placeholder="Ex:rahul@2021"
             />
           </div>
           {isError && <p className="error-text">{errorText}</p>}
